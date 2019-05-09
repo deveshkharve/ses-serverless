@@ -29,7 +29,6 @@ message: mail body
 
 #### Note:
 * sender email address has to be always verfied before you can post a successfull request.
-
 - In case email is not verified, resposnse will be access denied.
 - When using ses-sandbox, you need to verify the recipents email address.
 - To send email to unverified one need to request ses for production access. Please refer the following link
