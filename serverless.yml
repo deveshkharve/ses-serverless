@@ -1,0 +1,75 @@
+# Welcome to SES-Serverless-Application!
+# 
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+
+service: open-ses-service # NOTE: update this with your service name
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+# frameworkVersion: "=X.X.X"
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  environment:
+    SES_KEY: <AWS_KEY>
+    SES_SECRET: <AWS_SECRET>
+  throttle:
+    # burstLimit: 2 sets the maximum short-term traffic volume for your network within a time interval
+    burstLimit: 2
+    # rateLimit: is the number of API calls allowed in a time interval in this case per second
+    rateLimit: 1
+
+# you can overwrite defaults here
+#  stage: dev
+#  region: us-east-1
+
+# you can add statements to the Lambda function's IAM Role here
+#  iamRoleStatements:
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:ListBucket"
+#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:PutObject"
+#      Resource:
+#        Fn::Join:
+#          - ""
+#          - - "arn:aws:s3:::"
+#            - "Ref" : "ServerlessDeploymentBucket"
+#            - "/*"
+
+# you can define service wide environment variables here
+#  environment:
+#    variable1: value1
+
+# you can add packaging information here
+#package:
+#  include:
+#    - include-me.js
+#    - include-me-dir/**
+#  exclude:
+#    - exclude-me.js
+#    - exclude-me-dir/**
+plugins:
+  - serverless-offline
+
+functions:
+  mailer:
+    handler: handler.mailer
+
+#    NOTE: Please make sure to change your handler code to work with those events
+#    Check the event documentation for details
+    events:
+      - http:
+          path: /mail
+          method: post
+          cors: true
+
+#    Define function environment variables here
+    environment:
+      SENDER_EMAIL: <my@verified.email>
+

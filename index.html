@@ -1,0 +1,37 @@
+<html data-wf-page="5c5ec791d885eeff6bcef6b0" data-wf-site="5c5ec791d885ee469fcef69b">
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+</head>
+
+<body>
+    <form id="wf-form-Download-Form" name="wf-form-Download-Form" data-name="Download Form">
+        <div class="div-block-3">
+          <div class="div-block-4"><img src="images/5af65bcb779b5ac4e27e1e0a_logo-icon-color-5.svg" alt="" class="image-3"></div>
+        </div>
+        <h1 class="heading">contact us</h1><label for="name" class="field-label">Name:</label><input type="text" id="name" name="name" data-name="Name" placeholder="Enter your name" maxlength="256" required="" class="dark-field w-input"><label for="Email" class="field-label">Email:</label><input type="email" id="Email" name="Email" data-name="Email" placeholder="Enter your email" maxlength="256" required="" class="dark-field w-input">
+        <div class="checkbox w-checkbox"><input type="checkbox" id="Newsletter-subscription" name="Newsletter-subscription" data-name="Newsletter subscription" required="" checked="" class="w-checkbox-input"><label for="Newsletter-subscription" class="w-form-label">Allow us to occasionally send you emails filled with cool stuff we find</label></div><input id="submitbtn" type="submit" value="Give me my free evaluation" data-wait="Please wait..." class="button full-submit w-button"></form>
+</body>
+
+<script>
+    // contactus api
+    document.getElementById("submitbtn").addEventListener("click", function(event){
+      event.preventDefault()
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("Email").value; 
+      const url = 'service-end-point';
+      const data = { to: 'my@verified.mail', message: `${name} wants to contact you. email: ${email}`, subject: 'my subject'}
+      const headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true,
+      }
+      axios.post(url, data, headers).then(res => {
+        alert('submitted successfully.')
+      }).catch(err => {
+        alert('unable to submit request. Please try again later')
+      })
+      return true;
+    });
+  </script>
+  </html>
+  

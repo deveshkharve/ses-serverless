@@ -1,0 +1,18 @@
+{
+  "name": "ses-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "dependencies": {
+    "node-ses": "^2.2.0",
+    "offline": "0.0.1",
+    "serverless": "^1.41.1",
+    "serverless-offline": "^4.9.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

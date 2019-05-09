@@ -1,0 +1,15 @@
+{
+  "name": "offline",
+  "repo": "juliangruber/offline",
+  "description": "Check if offline.",
+  "version": "0.0.1",
+  "keywords": [
+    "offline"
+  ],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}
