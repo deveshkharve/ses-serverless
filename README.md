@@ -6,6 +6,7 @@ This I personally used to integrate "contact us" form in a static website.
 ### How to use
 
 update the following variables in serverless.yml
+
 `SES_KEY: <AWS_KEY>`
 `SES_SECRET: <AWS_SECRET>`
 `SENDER_EMAIL: <my@verified.email>`
