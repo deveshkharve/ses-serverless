@@ -267,22 +267,27 @@
    </body>
    <script>
       // contactus api
-      document.getElementById("submitbtn").addEventListener("click", function(event){
-        event.preventDefault()
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("Email").value; 
-        const url = 'service-end-point';
-        const data = { to: 'my@verified.mail', message: `${name} wants to contact you. email: ${email}`, subject: 'my subject'}
-        const headers = {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': true,
-        }
-        axios.post(url, data, headers).then(res => {
-          alert('submitted successfully.')
-        }).catch(err => {
-          alert('unable to submit request. Please try again later')
-        })
-        return true;
+      	document.getElementById("submitbtn").addEventListener("click", function(event){
+	event.preventDefault()
+        
+  // contactus api
+	document.getElementById("submitbtn").addEventListener("click", function(event){
+	    event.preventDefault()
+	const name = document.getElementById("name").value;
+	const email = document.getElementById("Email").value; 
+	const url = 'https://7m1kl7vlo7.execute-api.us-east-1.amazonaws.com/dev/register';
+	const data = { name, email}
+	const headers = {
+	   'Access-Control-Allow-Origin': '*',
+	   'Access-Control-Allow-Credentials': true,
+	}
+	axios.post(url, data, headers).then(res => {
+	   alert('submitted successfully.')
+	}).catch(err => {
+	   alert('unable to submit request. Please try again later')
+	 })
+	    return true;
+	  });
       });
    </script>
 </html>
