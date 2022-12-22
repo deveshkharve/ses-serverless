@@ -7,7 +7,7 @@
     "node-ses": "^2.2.0",
     "offline": "0.0.1",
     "serverless": "^1.41.1",
-    "serverless-offline": "^4.9.4"
+    "serverless-offline": "^12.0.3"
   },
   "devDependencies": {},
   "scripts": {
